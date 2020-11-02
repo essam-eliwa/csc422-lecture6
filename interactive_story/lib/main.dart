@@ -29,70 +29,11 @@ class _MainViewState extends State<MainView> {
       appBar: AppBar(
         title: Text('Interactive Story'),
       ),
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              height: 250,
-              margin: EdgeInsets.symmetric(vertical: 20.0),
-              child: Card(
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: FittedBox(
-                        child: Text(
-                      appLogic.getStory()[0],
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.indigo),
-                    )),
-                  ),
-                ),
-              ),
-            ),
-            choiceButton(context, appLogic.getStory()[1], () {
-              setState(() {
-                appLogic.nextStory(1);
-              });
-            }, Colors.blue, true),
-            choiceButton(context, appLogic.getStory()[2], () {
-              setState(() {
-                appLogic.nextStory(2);
-              });
-            }, Colors.teal, appLogic.isVisible()),
-            choiceButton(context, appLogic.getStory()[3], () {
-              setState(() {
-                appLogic.nextStory(3);
-              });
-            }, Colors.purple, appLogic.isVisible()),
-          ],
-        ),
-      ),
+      body: Container(),
     );
   }
 }
 
 Widget choiceButton(context, title, onpress, color, visibilty) {
-  return Container(
-    width: MediaQuery.of(context).size.width / 1.2,
-    margin: EdgeInsets.only(bottom: 10.0),
-    height: 70,
-    child: Visibility(
-        visible: visibilty,
-        child: RaisedButton(
-            color: color,
-            onPressed: onpress,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            child: FittedBox(
-              child: Text(
-                title,
-                style: TextStyle(fontSize: 25, color: Colors.white),
-              ),
-            ))),
-  );
+  return Container();
 }
