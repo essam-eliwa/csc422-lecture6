@@ -11,8 +11,8 @@ class IStoryData {
   List<Story> storyDB = [
     Story(
         //0
-        storyText: 'You see a ship',
-        choice1: 'Go aboard',
+        storyText: 'You see a ship in the sea',
+        choice1: 'Go aboard the ship',
         choice2: 'Look for another adventure',
         choice3: 'Just go home'),
     Story(
