@@ -8,7 +8,10 @@ class Nav2App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/details': (context) => DetailScreen(),
+      },
     );
   }
 }
@@ -20,14 +23,12 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: FlatButton(
-          color: Colors.grey[350],
+          color: Colors.blueGrey[200],
           child: Text('View Details'),
           onPressed: () {
-            Navigator.push(
+            Navigator.pushNamed(
               context,
-              MaterialPageRoute(builder: (context) {
-                return DetailScreen();
-              }),
+              '/details',
             );
           },
         ),
@@ -43,8 +44,8 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: FlatButton(
-          color: Colors.grey[350],
-          child: Text('Back - Pop!'),
+          color: Colors.blueGrey[200],
+          child: Text('Pop!'),
           onPressed: () {
             Navigator.pop(context);
           },
