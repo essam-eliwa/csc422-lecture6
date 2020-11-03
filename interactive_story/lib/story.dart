@@ -11,7 +11,7 @@ class IStoryData {
   List<Story> storyDB = [
     Story(
         //0
-        storyText: 'You see a ship in the sea',
+        storyText: 'You see a ship in the ocean',
         choice1: 'Go aboard the ship',
         choice2: 'Look for another adventure',
         choice3: 'Just go home'),
@@ -84,6 +84,7 @@ class IStoryData {
     } else if (storyLevel >= 3) {
       restartGame();
     }
+    print('Story Level $storyLevel');
   }
 
   void restartGame() {
