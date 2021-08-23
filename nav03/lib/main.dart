@@ -39,8 +39,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                FlatButton(
-                  color: Colors.grey[300],
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary:
+                        Colors.blueGrey[200], // This is a custom color variable
+                  ),
                   child: Text('View Details'),
                   onPressed: () {
                     Navigator.pushNamed(
@@ -49,8 +52,11 @@ class HomeScreen extends StatelessWidget {
                     );
                   },
                 ),
-                FlatButton(
-                  color: Colors.grey[300],
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary:
+                        Colors.blueGrey[200], // This is a custom color variable
+                  ),
                   child: Text('Random'),
                   onPressed: () {
                     Navigator.pushNamed(
@@ -87,8 +93,11 @@ class _DetailScreenState extends State<DetailScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Viewing details for item ${widget.id}'),
-            FlatButton(
-              color: Colors.grey[300],
+            TextButton(
+              style: TextButton.styleFrom(
+                primary:
+                    Colors.blueGrey[200], // This is a custom color variable
+              ),
               child: Text('Pop!'),
               onPressed: () {
                 Navigator.pop(context);

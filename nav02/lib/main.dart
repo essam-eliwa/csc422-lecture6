@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(Nav2App());
@@ -22,8 +23,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlatButton(
-          color: Colors.blueGrey[200],
+        child: TextButton(
+          style: TextButton.styleFrom(
+            primary: Colors.blueGrey[200], // This is a custom color variable
+            textStyle: GoogleFonts.fredokaOne(),
+          ),
           child: Text('View Details'),
           onPressed: () {
             Navigator.pushNamed(
@@ -43,8 +47,11 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlatButton(
-          color: Colors.blueGrey[200],
+        child: TextButton(
+          style: TextButton.styleFrom(
+            primary: Colors.blueGrey[200], // This is a custom color variable
+            textStyle: GoogleFonts.fredokaOne(),
+          ),
           child: Text('Pop!'),
           onPressed: () {
             Navigator.pop(context);
