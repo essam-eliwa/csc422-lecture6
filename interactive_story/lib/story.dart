@@ -1,9 +1,11 @@
 class Story {
   String storyText;
-  String choice1;
-  String choice2;
-  String choice3;
-  Story({this.storyText, this.choice1, this.choice2, this.choice3});
+  List<String> choices;
+
+  Story({
+    required this.storyText,
+    required this.choices,
+  });
 }
 
 class IStoryData {
@@ -12,57 +14,56 @@ class IStoryData {
     Story(
         //0
         storyText: 'You see a ship in the ocean',
-        choice1: 'Go aboard the ship',
-        choice2: 'Look for another adventure',
-        choice3: 'Just go home'),
+        choices: [
+          'Go aboard the ship',
+          'Look for another adventure',
+          'Just go home'
+        ]),
     Story(
         //1
         storyText: 'It is a pirate ship',
-        choice1: 'Wow, an amazing adventure',
-        choice2: 'Run back home',
-        choice3: 'Call the police'),
+        choices: [
+          'Wow, an amazing adventure',
+          'Run back home',
+          'Call the police'
+        ]),
     Story(
         //2
         storyText: 'Enter dark forest',
-        choice1: 'Yes',
-        choice2: 'Run back home',
-        choice3: 'Restart'),
+        choices: ['Yes', 'Run back home', 'Restart']),
     Story(
         //3
         storyText: 'You are adventurous, \n but watch your moral campus',
-        choice1: "Restart",
-        choice2: '',
-        choice3: ''),
+        choices: ['Restart', '', '']),
     Story(
         //4
         storyText: 'You are so brave',
-        choice1: "Restart",
-        choice2: '',
-        choice3: ''),
+        choices: ['Search for Magic Tree House', 'Restart', '']),
     Story(
         //5
         storyText: 'This is a great option \n you should never join pirates',
-        choice1: 'Look for another adventure',
-        choice2: 'Restart',
-        choice3: ''),
+        choices: ['Look for another adventure', 'Restart', '']),
     Story(
         //6
         storyText: 'You need to explore more',
-        choice1: "Restart",
-        choice2: '',
-        choice3: ''),
+        choices: ['Restart', '', '']),
+    Story(
+        //7
+        storyText: 'Found the Magic tree house, Go Back in time?',
+        choices: ['Yes', 'No', '']),
   ];
 
   List getStory() {
     return [
       storyDB[storyLevel].storyText,
-      storyDB[storyLevel].choice1,
-      storyDB[storyLevel].choice2,
-      storyDB[storyLevel].choice3
+      storyDB[storyLevel].choices[0],
+      storyDB[storyLevel].choices[1],
+      storyDB[storyLevel].choices[2]
     ];
   }
 
   void nextStory(int choice) {
+    print('choice = $choice, storyLevel=$storyLevel');
     if (choice == 1 && storyLevel == 0) {
       storyLevel = 1;
     } else if (choice == 2 && storyLevel == 0) {
@@ -79,9 +80,11 @@ class IStoryData {
       storyLevel = 4;
     } else if (choice == 2 && storyLevel == 2) {
       storyLevel = 6;
+    } else if (choice == 1 && storyLevel == 4) {
+      storyLevel = 7;
     } else if (choice == 3 && storyLevel == 2) {
       restartGame();
-    } else if (storyLevel >= 3) {
+    } else if (storyLevel >= 6) {
       restartGame();
     }
     print('Story Level $storyLevel');
@@ -92,6 +95,6 @@ class IStoryData {
   }
 
   bool isVisible() {
-    return !(storyLevel >= 3);
+    return !(storyLevel >= 6);
   }
 }
